@@ -2,11 +2,10 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <format>
 #include <math.h>
 
-//#define TEST
+#define TEST
 
 
 struct Line {
@@ -19,8 +18,6 @@ struct Line {
 };
 
 struct Point {
-	int x, y;
-
 	short overlaps = 0;
 };
 
@@ -75,16 +72,19 @@ void PrintGrid(short size, std::vector<std::vector<Point>>& pointArr, const char
 }
 
 void PrintCoord(short size, std::vector<std::vector<Point>>& pointArr) {
-#ifndef TEST
-	return;
-#endif // !TEST
+#ifdef TEST
 	std::cout << "Coords of each point" << std::endl;
 	for (short y = 0; y < size + 1; y++) {
 		for (short x = 0; x < size + 1; x++) {
-			std::cout << "(" << pointArr.at(x).at(y).x << ", " << pointArr.at(x).at(y).y << ") ";
+			std::cout << "(" << x << ", " << y << ") ";
 		}
 		std::cout << std::endl;
 	}
+#endif
+}
+
+bool isDiagonal(const Line& line) {
+	return (abs(line.x1 - line.x2) == abs(line.y1 - line.y2));
 }
 
 int main() {
@@ -104,7 +104,7 @@ int main() {
 
 	for (short x = 0; x < size + 1; x++) {
 		for (short y = 0; y < size + 1; y++) {
-			pointArr.at(x).push_back({ x, y, 0 });
+			pointArr.at(x).push_back({ 0 });
 		}
 	}
 
@@ -137,7 +137,7 @@ int main() {
 
 			//moving right across the graph
 			if (line.x2 > line.x1) {
-				for (short i = (line.x1 == 0 ? 0 : line.x1); i <= line.x2; i++) {
+				for (short i = line.x1; i <= line.x2; i++) {
 					pointArr[i][line.y1].overlaps++;
 				}
 				PrintGrid(size, pointArr, line.toString().c_str());
@@ -151,13 +151,56 @@ int main() {
 				PrintGrid(size, pointArr, line.toString().c_str());
 			}
 		}
+		else if(isDiagonal(line)){
+			//any 45 degree line
+			//the origin of the line is assumed to be x1, y1 for simplicity
+			if (line.x1 > line.x2) {
+				//point left
+
+				if (line.y1 > line.y2) {
+					//point up
+
+					for (short x = line.x2, y = line.y2; x <= line.x1 && y <= line.y1; x++, y++) {
+						pointArr[x][y].overlaps++;
+					}
+					PrintGrid(size, pointArr, line.toString().c_str());
+				}
+				else {
+					//point down
+					for (short x = line.x1, y = line.y1; x >= line.x2 && y <= line.y2; x--, y++) {
+						pointArr[x][y].overlaps++;
+					}
+					PrintGrid(size, pointArr, line.toString().c_str());
+				}
+			}
+			else {
+				//point right
+
+				if (line.y1 > line.y2) {
+					//point up
+
+					for (short x = line.x2, y = line.y2; x <= line.x1 && y <= line.y1; x++, y++) {
+						pointArr[x][y].overlaps++;
+					}
+					PrintGrid(size, pointArr, line.toString().c_str());
+				}
+				else {
+					//point down
+					for (short x = line.x1, y = line.y1; x >= line.x2 && y <= line.y2; x--, y++) {
+						pointArr[x][y].overlaps++;
+					}
+					PrintGrid(size, pointArr, line.toString().c_str());
+				}
+			}
+			
+		}
 	}
 
 	PrintGrid(size, pointArr);
 
 	int numDangerous = 0;
 	for (std::vector<Point> arr: pointArr) {
-		for (Point point : arr) {
+		for (const Point& point : arr) {
 			if (point.overlaps >= 2) {
 				numDangerous++;
 			}

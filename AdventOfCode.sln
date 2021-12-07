@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hydrothermal Venture", "202
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day 6 Lanterfish", "2021\Day 6 Lanterfish\Day 6 Lanterfish.vcxproj", "{11E4F29F-B2CC-4E3A-BB31-5A748F42DB22}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Day 7 The Treachery of Whales", "2021\Day 7 The Treachery of Whales\Day 7 The Treachery of Whales.vcxproj", "{9171E691-3873-488B-9AED-6381BB2061BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -95,6 +97,14 @@ Global
 		{11E4F29F-B2CC-4E3A-BB31-5A748F42DB22}.Release|x64.Build.0 = Release|x64
 		{11E4F29F-B2CC-4E3A-BB31-5A748F42DB22}.Release|x86.ActiveCfg = Release|Win32
 		{11E4F29F-B2CC-4E3A-BB31-5A748F42DB22}.Release|x86.Build.0 = Release|Win32
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Debug|x64.ActiveCfg = Debug|x64
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Debug|x64.Build.0 = Debug|x64
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Debug|x86.ActiveCfg = Debug|Win32
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Debug|x86.Build.0 = Debug|Win32
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Release|x64.ActiveCfg = Release|x64
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Release|x64.Build.0 = Release|x64
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Release|x86.ActiveCfg = Release|Win32
+		{9171E691-3873-488B-9AED-6381BB2061BB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +118,7 @@ Global
 		{98C3C0EC-8BEC-4298-A853-1471D3CC8948} = {DD927A79-5112-433A-B3D1-EAA2C1721387}
 		{2266B51F-C5BA-4AC5-952D-EB6EA9301602} = {DD927A79-5112-433A-B3D1-EAA2C1721387}
 		{11E4F29F-B2CC-4E3A-BB31-5A748F42DB22} = {DD927A79-5112-433A-B3D1-EAA2C1721387}
+		{9171E691-3873-488B-9AED-6381BB2061BB} = {DD927A79-5112-433A-B3D1-EAA2C1721387}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD5ECDCD-558D-4DDF-ADC8-4598EBBC98EA}
