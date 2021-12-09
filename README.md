@@ -1,7 +1,7 @@
 # AdventOfCode
 My solutions for the 2021 Advent of Code
 
-![](https://img.shields.io/badge/day%20📅-8-blue)
+![](https://img.shields.io/badge/day%20📅-9-blue)
 ![](https://img.shields.io/badge/stars%20⭐-10-yellow)
 ![](https://img.shields.io/badge/days%20completed-4-red)
 
